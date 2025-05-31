@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Sphere - Medical Coding Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+            min-height: 100vh;
+        }
+
+        .brochure {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+
+        .company-logo {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #2c5282;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #2c5282, #3182ce);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .program-overview {
+            background: linear-gradient(135deg, #e6f3ff, #f0f8ff);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #3182ce;
+            margin-bottom: 30px;
+        }
+
+        .program-overview h3 {
+            color: #2c5282;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .program-overview p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #3182ce;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(49, 130, 206, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(44, 82, 130, 0.2);
+            background: linear-gradient(135deg, #f8fafc, #e2e8fe);
+        }
+
+        .service-card h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #2c5282, #3182ce);
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: sparkle 3s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stat:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .curriculum {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .curriculum h3 {
+            color: #2c5282;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .curriculum-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #3182ce;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .curriculum-item h4 {
+            color: #2c5282;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .curriculum-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .curriculum-item li {
+            color: #4a5568;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .curriculum-item li::before {
+            content: '✓';
+            color: #3182ce;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .placement-guarantee {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 35px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placement-guarantee::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .placement-guarantee:hover::before {
+            left: 100%;
+        }
+
+        .placement-guarantee h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .placement-guarantee p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #38a169;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #f7fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            background: #f0f8ff;
+            padding: 30px;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2c5282, #3182ce);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text strong {
+            color: #2c5282;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .brochure {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header, .content {
+                padding: 30px 25px;
+            }
+            
+            .company-logo {
+                font-size: 2.2rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <div class="header">
+            <div class="company-logo">🔬 FRAME SPHERE</div>
+            <h1>Medical Coding Training & Placement Program</h1>
+            <p>Your Gateway to a Rewarding Healthcare Career</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="program-overview">
+                    <h3>🎯 Launch Your Healthcare Career</h3>
+                    <p>Frame Sphere's comprehensive Medical Coding Training & Placement Program is designed to transform you into a certified medical coding professional. With industry-leading curriculum, hands-on training, and guaranteed placement support, we ensure your success in the rapidly growing healthcare sector.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">📚</span>Why Choose Our Program?</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Placement Rate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Students Placed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Months Training</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Partner Hospitals</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Student Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">🏥</span>Training Modules</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>⚕️ Medical Terminology</h3>
+                        <p>Master essential medical vocabulary, anatomical terms, and healthcare language used in clinical documentation and coding processes.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📋 ICD-10 Coding</h3>
+                        <p>Comprehensive training in International Classification of Diseases coding system for accurate diagnosis and procedure coding.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>💼 CPT Coding</h3>
+                        <p>Learn Current Procedural Terminology coding for medical procedures, services, and supplies in various healthcare settings.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏥 HCPCS Coding</h3>
+                        <p>Healthcare Common Procedure Coding System training for Medicare and Medicaid billing requirements and compliance.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📊 Electronic Health Records</h3>
+                        <p>Hands-on experience with popular EHR systems and electronic medical record management for modern healthcare facilities.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎓 Certification Prep</h3>
+                        <p>Intensive preparation for CCS, CCA, and CPC certification exams with mock tests and expert guidance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">📖</span>Detailed Curriculum</h2>
+                <div class="curriculum">
+                    <h3>6-Month Comprehensive Program Structure</h3>
+                    <div class="curriculum-grid">
+                        <div class="curriculum-item">
+                            <h4>🗓️ Months 1-2: Foundation</h4>
+                            <ul>
+                                <li>Medical Terminology & Anatomy</li>
+                                <li>Healthcare System Overview</li>
+                                <li>Introduction to Medical Coding</li>
+                                <li>HIPAA & Compliance Basics</li>
+                                <li>Medical Documentation Essentials</li>
+                            </ul>
+                        </div>
+                        <div class="curriculum-item">
+                            <h4>🗓️ Months 3-4: Core Coding</h4>
+                            <ul>
+                                <li>ICD-10-CM Diagnosis Coding</li>
+                                <li>ICD-10-PCS Procedure Coding</li>
+                                <li>CPT Coding Guidelines</li>
+                                <li>HCPCS Level II Coding</li>
+                                <li>Coding Practice & Case Studies</li>
+                            </ul>
+                        </div>
+                        <div class="curriculum-item">
+                            <h4>🗓️ Months 5-6: Specialization</h4>
+                            <ul>
+                                <li>Electronic Health Records Training</li>
+                                <li>Medical Billing Fundamentals</li>
+                                <li>Quality Assurance & Auditing</li>
+                                <li>Certification Exam Preparation</li>
+                                <li>Interview Skills & Resume Building</li>
+                            </ul>
+                        </div>
+                        <div class="curriculum-item">
+                            <h4>🎯 Additional Benefits</h4>
+                            <ul>
+                                <li>Live Project Experience</li>
+                                <li>Industry Expert Guest Lectures</li>
+                                <li>Soft Skills Development</li>
+                                <li>Career Counseling Sessions</li>
+                                <li>Post-Training Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="placement-guarantee">
+                <h3>🎯 100% Placement Assistance Guarantee</h3>
+                <p>We don't just train you - we ensure you get placed! Our dedicated placement team works tirelessly to connect you with top healthcare employers across the country.</p>
+                <p><strong>Average Starting Salary: ₹3.5 - 6 LPA</strong></p>
+                <a href="#" class="cta-button" onclick="alert('Contact us to enroll today!')">Enroll Now & Secure Your Future</a>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">🏢</span>Career Opportunities</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🏥 Hospitals & Clinics</h3>
+                        <p>Work directly with healthcare providers in coding departments of major hospitals and specialty clinics nationwide.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>💼 Insurance Companies</h3>
+                        <p>Join leading health insurance companies as medical coding specialist, claims analyst, or coding auditor.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏠 Remote Opportunities</h3>
+                        <p>Work from home with flexible schedules for various healthcare organizations and medical coding companies.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🚀 Freelance Consulting</h3>
+                        <p>Start your own medical coding consultancy or work as an independent contractor with multiple clients.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">📞</span>Contact Frame Sphere</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            admissions@framesphere.com<br>
+                            info@framesphere.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            +91 98765 43210<br>
+                            +91 87654 32109
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-text">
+                            <strong>Website</strong>
+                            www.framesphere.com<br>
+                            Online Demo Available
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <strong>Locations</strong>
+                            Multiple Centers Available<br>
+                            Classroom & Online Options
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #2c5282, #3182ce); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-top: 30px;">
+                <h3 style="margin-bottom: 15px;">🎓 Transform Your Career Today!</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 0;">Join thousands of successful medical coding professionals who started their journey with Frame Sphere. Your healthcare career awaits!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.service-card, .curriculum-item');
+            const stats = document.querySelectorAll('.stat');
+            
+            // Animate cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
+                    }
+                });
+            }, observerOptions);
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Animate stats counter on hover
+            stats.forEach(stat => {
+                const number = stat.querySelector('.stat-number');
+                const finalNumber = number.textContent;
+                
+                stat.addEventListener('mouseenter', function() {
+                    if (finalNumber.includes('%')) {
+                        const num = parseInt(finalNumber);
+                        animateNumber(number, 0, num, 1200, '%');
+                    } else if (finalNumber.includes('+')) {
+                        const num = parseInt(finalNumber);
+                        animateNumber(number, 0, num, 1500, '+');
+                    } else if (!isNaN(parseInt(finalNumber))) {
+                        const num = parseInt(finalNumber);
+                        animateNumber(number, 0, num, 1000);
+                    }
+                });
+            });
+            
+            function animateNumber(element, start, end, duration, suffix = '') {
+                const startTime = performance.now();
+                const originalText = element.textContent;
+                
+                function updateNumber(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(start + (end - start) * progress);
+                    
+                    if (originalText === '24/7') {
+                        element.textContent = '24/7';
+                    } else {
+                        element.textContent = current + suffix;
+                    }
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    }
+                }
+                
+                if (originalText !== '24/7') {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
